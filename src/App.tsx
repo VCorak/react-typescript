@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import List from "./components/List";
 
 interface IState {
     books: {
@@ -15,12 +16,12 @@ function App() {
 
     const [books, setBooks] = useState<IState["books"]>([])
 
-    
   return (
     <div className="App">
-<h1>Books to Read</h1>
+    <h1>Books to Read</h1>
+        <List books = {books} />
     </div>
   );
-}
+};
 
 export default App;
