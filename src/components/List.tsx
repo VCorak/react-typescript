@@ -24,6 +24,7 @@ const List: React.FC<IProps>= ({ books }) => {
                     <div className="List-header">
                         <img className="List-img" src={book.url} />
                         <h2>{book.title}</h2>
+                        <h3>{book.author}</h3>
                     </div>
                     <p>{book.score} is a score on Goodreads</p>
                     <p className="List-note">{book.note}</p>
