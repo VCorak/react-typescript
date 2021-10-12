@@ -1,14 +1,6 @@
 import React from "react";
+import { IState as IProps } from "../App";
 
-interface IProps {
-    books: {
-        title: string
-        url: string
-        score: number
-        author: string
-        note?: string
-    }[]
-}
 
 const List: React.FC<IProps>= ({ books }) => {
 // we are not returning JSX element and TS hasn't caught this yet...

@@ -1,6 +1,12 @@
 import React, { useState } from "react";
+import { IState as Props } from "../App";
 
-const AddToList = () => {
+interface IProps {
+    books: Props["books"]
+    setBooks: React.Dispatch<React.SetStateAction<Props["books"]>>
+}
+
+const AddToList: React.FC<IProps> = ({books, setBooks}) => {
     
     const [input, setInput]= useState({
         title:"",
@@ -16,12 +22,37 @@ const AddToList = () => {
             [e.target.name]: e.target.value // overriding the input name with written value
         })
 
-        // with the "void" we are returning nothing in this function
+        // with the "void" we are returning nothing in function
     }
 
-    const handleClick = () => {
+    const handleClick = (): void => {
+        if (
+            !input.title ||
+            !input.author ||
+            !input.img
+        ) {
+            return
+        }
 
-    })
+        setBooks([
+            ...books,
+            {
+                title: input.title,
+                author: input.author,
+                url: input.img,
+                score: parseInt(input.score),
+                note: input.note
+            }
+        ])
+
+        setInput({
+            title:"",
+            author:"",
+            img:"",
+            score:"",
+            note:""
+        })
+    }
 
     return (
         <div className="AddToList">
@@ -50,7 +81,7 @@ const AddToList = () => {
                 name="img"
             />
             <input
-                type="text"
+                type="number"
                 placeholder="Score"
                 className="AddToList-input"
                 value={input.score}

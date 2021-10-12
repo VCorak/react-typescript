@@ -3,7 +3,7 @@ import './App.css';
 import List from "./components/List";
 import AddToList from "./components/AddToList";
 
-interface IState {
+export interface IState {
     books: {
         title: string
         url: string
@@ -29,7 +29,7 @@ function App() {
     <div className="App">
     <h1>Books to Read</h1>
         <List books = {books} />
-        <AddToList />
+        <AddToList books={books} setBooks={setBooks} />
     </div>
   );
 };
