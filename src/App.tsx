@@ -9,7 +9,7 @@ export interface IState {
         url: string
         score: number
         author: string
-        note?: string
+        note?: string // ? means that this is optional, note is optional, that's why on hoover you get string or undefined
     }[]
 }
 
